@@ -1,0 +1,25 @@
+# Web Scraping
+playwright==1.48.0
+beautifulsoup4==4.12.3
+lxml==5.3.0
+requests==2.32.3
+
+# Feishu API
+lark-oapi==1.2.19
+feishu-bitable==0.2.1
+
+# Scheduler
+apscheduler==3.11.0
+
+# Database
+sqlalchemy==2.0.36
+
+# Utilities
+python-dotenv==1.0.1
+pytz==2024.2
+
+# Logging
+loguru==0.7.3
+
+# HTTP utilities
+httpx==0.28.1

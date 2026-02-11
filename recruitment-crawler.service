@@ -1,0 +1,19 @@
+[Unit]
+Description=Recruitment Crawler Service
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/opt/recruitment_crawler
+Environment="PATH=/opt/recruitment_crawler/venv/bin"
+ExecStart=/opt/recruitment_crawler/venv/bin/python main.py schedule
+Restart=always
+RestartSec=10
+
+# Logging
+StandardOutput=append:/var/log/recruitment_crawler.log
+StandardError=append:/var/log/recruitment_crawler_error.log
+
+[Install]
+WantedBy=multi-user.target

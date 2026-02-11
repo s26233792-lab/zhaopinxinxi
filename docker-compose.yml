@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  recruitment-crawler:
+    build: .
+    container_name: recruitment-crawler
+    restart: unless-stopped
+
+    # Environment variables from .env file
+    env_file:
+      - .env
+
+    # Mount volumes for persistence
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+
+    # Port mapping for health check
+    ports:
+      - "8080:8080"
+
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+
+    # Logging configuration
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
